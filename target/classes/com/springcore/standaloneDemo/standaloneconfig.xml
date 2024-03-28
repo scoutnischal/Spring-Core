@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util.xsd
+    ">    
+
+	<!-- standalone lists -->
+	<util:list list-class="java.util.LinkedList" id="friendLists">
+		<value>Rohit</value>
+		<value>Roshan</value>
+		<value>Sujan</value>
+	</util:list> 
+	<util:map map-class="java.util.TreeMap" id="fee">
+		<entry key="Spring-Framework" value="5000"/>
+		<entry key="Django-Framework" value="4000"/>
+		<entry key="Laravel-Framework" value="4500"/>
+	</util:map>
+	<util:properties id="mydb">
+		<prop key="driver">com.mysql.jdbc.Driver</prop>
+		<prop key="username">root</prop>
+		<prop key="password">root</prop>
+		<prop key="database">springDB</prop>
+	</util:properties>
+
+	<bean class="com.springcore.standaloneDemo.Person" name="person1">
+		<property name="friendLists" ref="friendLists"/>
+		<property name="feeStructure" ref="fee"/>		<property name="dbProperties" ref="mydb"/>
+	</bean>
+</beans>
